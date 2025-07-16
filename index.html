@@ -1,113 +1,196 @@
-<<<<<<< HEAD
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Kapil Meena | Portfolio</title>
-  <link rel="stylesheet" href="css/style.css"/>
-</head>
-<body>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    html {
+      scroll-behavior: smooth;
+    }
+    body {
+      background-color: #111827;
+      background-image: linear-gradient(to bottom, transparent 1px, rgba(255,255,255,0.05) 1px),
+                        linear-gradient(to right, transparent 1px, rgba(255,255,255,0.05) 1px);
+      background-size: 40px 40px;
+      overflow-x: hidden;
+    }
 
-  <header>
-    <h1>Kapil Meena</h1>
-    <p class="typing-text"></p>
-    <nav>
-      <a href="https://github.com/Kapill09" target="_blank">GitHub</a>
-      <a href="https://linkedin.com/in/kapil-meena-b4884a313" target="_blank">LinkedIn</a>
-      <a href="assets/Kapil_resume.pdf" download>Resume</a>
+    .marquee-track {
+      display: flex;
+      width: 200%;
+      animation: scroll-left 4s linear infinite;
+    }
+
+    .marquee-content {
+      flex: 0 0 50%;
+      white-space: nowrap;
+      padding-right: 2rem;
+    }
+
+    @keyframes scroll-left {
+      0% {
+        transform: translateX(0%);
+      }
+      100% {
+        transform: translateX(-50%);
+      }
+    }
+  </style>
+</head>
+<body class="text-white font-sans">
+
+  <!-- NAVBAR -->
+  <header class="fixed top-0 left-0 right-0 bg-gray-900 shadow-md z-50 px-6 py-4 flex justify-between items-center">
+    <div class="text-xl font-bold text-white">Kapil Meena</div>
+    <nav class="space-x-6">
+      <a href="#about" class="text-white hover:text-blue-400">About</a>
+      <a href="#projects" class="text-white hover:text-blue-400">Projects</a>
+      <a href="#skills" class="text-white hover:text-blue-400">Skills</a>
+      <a href="#contact" class="text-white hover:text-blue-400">Contact</a>
     </nav>
   </header>
 
-  <section class="projects">
-    <h2>Projects</h2>
-
-    <div class="project-card">
-      <h3>Health Insurance Fraud Detection</h3>
-      <p>ML model to detect fraudulent claims with 90%+ accuracy. Used Python, Pandas, XGBoost.</p>
-      <a href="https://github.com/Kapill09/MediCare-fraud_Detection" target="_blank">GitHub</a>
+  <!-- HERO SECTION -->
+  <section class="relative h-screen px-4 overflow-hidden flex items-end justify-center">
+    <!-- Marquee Background -->
+    <div class="absolute top-[15%] left-0 w-full overflow-hidden z-0">
+      <div class="marquee-track text-[19vw] font-extrabold text-white opacity-5">
+        <div class="marquee-content">
+          KAPIL MEENA KAPIL MEENA KAPIL MEENA KAPIL MEENA
+        </div>
+        <div class="marquee-content">
+          KAPIL MEENA KAPIL MEENA KAPIL MEENA KAPIL MEENA
+        </div>
+      </div>
     </div>
 
-    <div class="project-card">
-      <h3>Blockchain Data Sharing</h3>
-      <p>Secure file sharing using Flask, AES encryption, and Web3.js. P2P private blockchain.</p>
+    <!-- Image + Scroll button -->
+    <div class="w-full flex justify-between items-end pb-6 px-4 relative z-10">
+      <div class="flex flex-col items-center animate-bounce">
+        <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
+        </svg>
+        <span class="text-sm text-gray-300 mt-1 uppercase tracking-wide">Scroll Down</span>
+      </div>
+
+      <div class="flex-1 flex justify-center">
+        <img src="assets/me.png"
+             alt="Kapil Meena"
+             class="w-[500px] h-[540px] object-cover object-top shadow-xl transform scale-110 transition duration-500" />
+      </div>
+    </div>
+
+    <div class="absolute bottom-2 right-4 text-xs text-gray-500 tracking-wide uppercase z-10">©2025</div>
+  </section>
+
+  <!-- ABOUT SECTION -->
+  <section id="about" class="bg-gray-800 pt-28 pb-16 px-6 text-center relative z-20">
+    <div class="max-w-6xl mx-auto grid md:grid-cols-2 gap-10 text-left">
+      <!-- Left Heading -->
+      <div class="flex items-center justify-center md:justify-start">
+        <h2 class="text-4xl font-bold text-blue-400">About Me</h2>
+      </div>
+
+      <!-- Right Typing + Para -->
+      <div>
+        <p class="text-2xl font-semibold mb-4 text-blue-300">
+          I'm a <span class="typing-text"></span>
+        </p>
+        <p class="text-gray-300 leading-relaxed">
+          Hey, I'm Kapil Meena — a curious and hardworking web developer who's constantly learning and improving.<br><br>
+          I'm currently diving deep into front-end development, focusing on <strong>JavaScript</strong>, <strong>React</strong>, and <strong>UI/UX design</strong>. I'm also sharpening my skills in <strong>Data Structures & Algorithms</strong> and exploring the world of <strong>Machine Learning</strong> alongside.<br><br>
+          I believe in building real, useful projects and learning by doing. Every day, I aim to write better code, solve harder problems, and become a better version of myself — both as a developer and as a person.<br><br>
+          This portfolio is just one step in my journey — and I'm just getting started 🚀
+        </p>
+
+        <div class="flex gap-4 mt-6">
+          <a href="assets/Kapil_resume.pdf" download class="px-6 py-2 border rounded-full hover:bg-white hover:text-gray-900 transition">Download CV</a>
+          <button onclick="document.getElementById('contact').scrollIntoView({ behavior: 'smooth' })" class="px-6 py-2 bg-white text-gray-900 rounded-full hover:bg-blue-500 hover:text-white transition">Contact Info</button>
+        </div>
+      </div>
     </div>
   </section>
 
-  <section class="skills">
-    <h2>Skills</h2>
-    <ul>
-      <li>C++</li>
-      <li>JavaScript</li>
-      <li>Python</li>
-      <li>React</li>
-      <li>Node.js</li>
-      <li>Git</li>
-      <li>HTML/CSS</li>
-    </ul>
+  <!-- PROJECTS SECTION -->
+  <section id="projects" class="px-6 py-16 text-center">
+    <h2 class="text-3xl font-bold mb-10 text-blue-400">Projects</h2>
+    <div class="grid md:grid-cols-2 gap-8 max-w-6xl mx-auto">
+      <div class="bg-gray-800 rounded-xl p-8 shadow-xl transition-transform hover:scale-105">
+        <h3 class="text-xl font-semibold mb-2 text-white">Personal Portfolio (HTML)</h3>
+        <p class="text-gray-300 mb-3">A responsive portfolio website showcasing my profile, projects, and resume. Built using HTML, CSS, Tailwind.</p>
+        <a href="https://kapill09.github.io/My-Resume/" class="text-blue-400 hover:underline" target="_blank">Live Demo</a>
+      </div>
+      <div class="bg-gray-800 rounded-xl p-8 shadow-xl transition-transform hover:scale-105">
+        <h3 class="text-xl font-semibold mb-2 text-white">Health Insurance Fraud Detection</h3>
+        <p class="text-gray-300 mb-3">ML model to detect fraudulent health claims with 90%+ accuracy. Built with Python, Pandas, and XGBoost.</p>
+        <a href="https://github.com/Kapill09/MediCare-fraud_Detection" class="text-blue-400 hover:underline" target="_blank">GitHub Repo →</a>
+      </div>
+      <div class="bg-gray-700 rounded-xl p-8 shadow-md flex flex-col justify-center items-center text-center col-span-2">
+        <h3 class="text-xl font-semibold mb-2 text-white">🚧 Coming Soon</h3>
+        <p class="text-gray-400">Exciting new project under development. Stay tuned!</p>
+      </div>
+    </div>
   </section>
 
-  <footer>
-    <p>🚧 Portfolio v1.0 — Work in Progress</p>
-  </footer>
+  <!-- SKILLS SECTION -->
+  <section id="skills" class="px-6 py-12 text-center">
+    <h2 class="text-3xl font-bold mb-6 text-blue-400">Skills</h2>
+    <div class="flex flex-wrap justify-center gap-3 max-w-5xl mx-auto">
+      <span class="bg-blue-500 text-white px-4 py-2 rounded-full">HTML</span>
+      <span class="bg-green-500 text-white px-4 py-2 rounded-full">CSS</span>
+      <span class="bg-yellow-500 text-white px-4 py-2 rounded-full">JavaScript</span>
+      <span class="bg-purple-500 text-white px-4 py-2 rounded-full">React</span>
+      <span class="bg-teal-500 text-white px-4 py-2 rounded-full">Node.js</span>
+      <span class="bg-pink-500 text-white px-4 py-2 rounded-full">Python</span>
+      <span class="bg-red-500 text-white px-4 py-2 rounded-full">C++</span>
+      <span class="bg-gray-500 text-white px-4 py-2 rounded-full">Git</span>
+    </div>
+  </section>
 
-  <script src="js/script.js"></script>
+  <!-- CONTACT SECTION -->
+  <section id="contact" class="bg-gray-800 py-10 text-center">
+    <h2 class="text-2xl font-semibold mb-6 text-blue-400">Contact Info</h2>
+    <div class="flex flex-wrap justify-center gap-6">
+      <a href="mailto:231210056@nitdelhi.ac.in" target="_blank" class="flex items-center gap-3 px-4 py-2 rounded-full hover:text-blue-400 transition border border-gray-500">
+        <img src="assets/gmail.png" alt="Email" class="w-5 h-5" />
+        <span>Email</span>
+      </a>
+      <a href="https://linkedin.com/in/kapil-meena-b4884a313" target="_blank" class="flex items-center gap-3 px-4 py-2 rounded-full hover:text-blue-400 transition border border-gray-500">
+        <img src="assets/LinkedIn.png" alt="LinkedIn" class="w-5 h-5" />
+        <span>LinkedIn</span>
+      </a>
+      <a href="https://github.com/Kapill09" target="_blank" class="flex items-center gap-3 px-4 py-2 rounded-full hover:text-blue-400 transition border border-gray-500">
+        <img src="assets/github.jpeg" alt="GitHub" class="w-5 h-5" />
+        <span>GitHub</span>
+      </a>
+    </div>
+  </section>
+
+  <!-- TYPING JS -->
+  <script>
+    const text = ["UI Developer", "Frontend Developer", "Learner"];
+    let count = 0;
+    let index = 0;
+    let currentText = '';
+    let letter = '';
+
+    (function type() {
+      if (count === text.length) count = 0;
+      currentText = text[count];
+      letter = currentText.slice(0, ++index);
+      document.querySelector('.typing-text').textContent = letter;
+      if (letter.length === currentText.length) {
+        count++;
+        index = 0;
+        setTimeout(type, 1000);
+      } else {
+        setTimeout(type, 100);
+      }
+    })();
+  </script>
 </body>
 </html>
-=======
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Kapil Meena | Portfolio</title>
-  <link rel="stylesheet" href="css/style.css"/>
-</head>
-<body>
 
-  <header>
-    <h1>Kapil Meena</h1>
-    <p class="typing-text"></p>
-    <nav>
-      <a href="https://github.com/Kapill09" target="_blank">GitHub</a>
-      <a href="https://linkedin.com/in/kapil-meena-b4884a313" target="_blank">LinkedIn</a>
-      <a href="assets/Kapil_resume.pdf" download>Resume</a>
-    </nav>
-  </header>
-
-  <section class="projects">
-    <h2>Projects</h2>
-
-    <div class="project-card">
-      <h3>Health Insurance Fraud Detection</h3>
-      <p>ML model to detect fraudulent claims with 90%+ accuracy. Used Python, Pandas, XGBoost.</p>
-      <a href="https://github.com/Kapill09/MediCare-fraud_Detection" target="_blank">GitHub</a>
-    </div>
-
-    <div class="project-card">
-      <h3>Blockchain Data Sharing</h3>
-      <p>Secure file sharing using Flask, AES encryption, and Web3.js. P2P private blockchain.</p>
-    </div>
-  </section>
-
-  <section class="skills">
-    <h2>Skills</h2>
-    <ul>
-      <li>C++</li>
-      <li>JavaScript</li>
-      <li>Python</li>
-      <li>React</li>
-      <li>Node.js</li>
-      <li>Git</li>
-      <li>HTML/CSS</li>
-    </ul>
-  </section>
-
-  <footer>
-    <p>🚧 Portfolio v1.0 — Work in Progress</p>
-  </footer>
-
-  <script src="js/script.js"></script>
-</body>
-</html>
->>>>>>> 0181cdbb6c7bef58482fc09f37e4f3925446e4e0
